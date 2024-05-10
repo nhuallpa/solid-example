@@ -1,12 +1,9 @@
 package com.nhuallpa.solidexample.payroll
 
-private const val NORMAL_HOURS = 160
-
-private const val RATE_USD: Double = 30.0
-
-class Employee (name:String, cuit:String){
-
-    private fun getTimeOffInHours() = 8
+class Employee (private val name:String,
+                private val cuit:String,
+                private val rate:Double,
+                private var workingHours: Int){
 
     fun calculatePay(): Double {
         print("Apply business rules")
@@ -32,12 +29,10 @@ class Employee (name:String, cuit:String){
     }
 
     private fun processPayment(retrieveRate: Double, retrieveWorkingHours: Int): Double {
-        return retrieveRate() * retrieveWorkingHours();
+        return retrieveRate * retrieveWorkingHours;
     }
 
-    private fun retrieveRate() = RATE_USD
+    private fun retrieveRate() = rate
 
-    private fun retrieveWorkingHours():Int {
-        return NORMAL_HOURS
-    }
+    private fun retrieveWorkingHours() = workingHours
 }
