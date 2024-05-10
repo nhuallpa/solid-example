@@ -1,9 +1,12 @@
 package com.nhuallpa.solidexample.payroll
 
-class Employee (private val name:String,
-                private val cuit:String,
-                private val rate:Double,
-                private var workingHours: Int){
+data class Employee(
+    val name: String,
+    val cuit: String,
+    val rate: Double,
+    val role: String,
+    var workingHours: Int
+) {
 
     fun retrieveRate() = rate
 
