@@ -11,16 +11,16 @@ private const val TRAVEL_ALLOWANCE = 100
 class PayCalculator {
 
     fun calculatePay(employee: Employee): Double {
-        var additional = 0;
+        var extra = 0;
 
         if (employee.role == "SELLER") {
-            additional = SALE_COMMISSION
+            extra = SALE_COMMISSION
         } else if (employee.role == "STAFF_ENGINEER") {
-            additional = 2 * BONUS + PERFORMANCE_RATE
-        } else {
-            additional = TRAVEL_ALLOWANCE
+            extra = 2 * BONUS + PERFORMANCE_RATE
+        } else if (employee.role == "ASSISTANT") {
+            extra = TRAVEL_ALLOWANCE
         }
-        return processPayment(employee.retrieveRate(), employee.retrieveWorkingHours()) + additional;
+        return processPayment(employee.retrieveRate(), employee.retrieveWorkingHours()) + extra;
     }
 
     private fun processPayment(retrieveRate: Double, retrieveWorkingHours: Int): Double {
