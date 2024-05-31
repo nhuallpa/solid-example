@@ -3,11 +3,8 @@ package com.nhuallpa.solidexample.payroll
 class HourReporter {
 
     fun reportHours(employee: Employee) {
-        // 1- Retrieve info from database
         val employeePayrollDetail =  retrievePayrollDetail(employee)
-        // 2- Apply business logic
         val totalWorkingHours = computeTotalWorkingHour(employeePayrollDetail)
-        // 3- Print the report in PDF
         printReport(employee, employeePayrollDetail, totalWorkingHours)
     }
 
