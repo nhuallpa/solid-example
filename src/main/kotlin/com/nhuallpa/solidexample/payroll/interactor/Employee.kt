@@ -1,4 +1,4 @@
-package com.nhuallpa.solidexample.payroll
+package com.nhuallpa.solidexample.payroll.interactor
 
 data class Employee(
     val name: String,

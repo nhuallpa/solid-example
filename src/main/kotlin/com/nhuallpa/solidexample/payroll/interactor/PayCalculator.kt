@@ -1,14 +1,14 @@
-package com.nhuallpa.solidexample.payroll
+package com.nhuallpa.solidexample.payroll.interactor
 
-private const val SALE_COMMISSION = 1000
-
-private const val BONUS = 500
-
-private const val PERFORMANCE_RATE = 500
-
-private const val TRAVEL_ALLOWANCE = 100
 
 class PayCalculator {
+
+    companion object {
+        const val SALE_COMMISSION = 1000
+        const val BONUS = 500
+        const val PERFORMANCE_RATE = 500
+        const val TRAVEL_ALLOWANCE = 100
+    }
 
     fun calculatePay(employee: Employee): Double {
         var extra = 0;
