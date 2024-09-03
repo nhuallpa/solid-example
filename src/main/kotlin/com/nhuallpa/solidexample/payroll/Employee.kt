@@ -1,28 +1,38 @@
 package com.nhuallpa.solidexample.payroll
 
-private const val NORMAL_HOURS = 160
+class Employee (private val name:String,
+                private val cuit:String,
+                private val rate:Double,
+                private var workingHours: Int){
 
-class Employee (name:String, cuit:String){
-
-    private fun getTimeOffInHours() = 8
-
-    fun calculatePay(): Int {
-        return 30 * workingHours();
+    fun calculatePay(): Double {
+        print("Apply business rules")
+        return processPayment(retrieveRate(), retrieveWorkingHours())
     }
 
-    fun reportHours(): Int {
-        return convertToExcel(workingHours())
+    fun reportHours(): String {
+        print("Calling third-party library")
+        return buildReport(retrieveWorkingHours())
     }
 
     fun save() {
+        saveWithEntityManager(this)
+    }
+
+    private fun saveWithEntityManager(employee: Employee) {
         print("Save data in the database")
     }
 
-    private fun convertToExcel(workingHours: Int): Int {
-        TODO("Not yet implemented")
+    private fun buildReport(workingHours: Int): String {
+        print("Calling third-party library to generate report")
+        return "Report was built successful"
     }
 
-    private fun workingHours():Int {
-        return NORMAL_HOURS - getTimeOffInHours();
+    private fun processPayment(retrieveRate: Double, retrieveWorkingHours: Int): Double {
+        return retrieveRate * retrieveWorkingHours;
     }
+
+    private fun retrieveRate() = rate
+
+    private fun retrieveWorkingHours() = workingHours
 }
